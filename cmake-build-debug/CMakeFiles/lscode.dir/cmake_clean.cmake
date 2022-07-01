@@ -1,9 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lscode.dir/BTree.cpp.obj"
-  "CMakeFiles/lscode.dir/design-pattern/singleton.cpp.obj"
-  "liblscode.dll.a"
-  "lscode.exe"
-  "lscode.exe.manifest"
+  "CMakeFiles/lscode.dir/posix/epoll_v1.cpp.o"
+  "lscode"
   "lscode.pdb"
 )
 

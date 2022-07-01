@@ -13,7 +13,6 @@ static const Color red = false;
 static const Color black  = true;
 
 //-红黑树的节点特点，有color，有parent
-
 class RBtree_node{
 public:
     Color color;
@@ -279,34 +278,35 @@ void RBtree::deleteNode(KEY_TYPE key){
 
 //-修复删除
 void RBtree::fixDelete(RBtree_node * delete_son){
-    //-当删除的黑色节点的孩子是黑色的一直循环
+    //-修复的原因是因为delete_son所在的枝条的黑节点比另一个枝条少一个，所以不平衡，所以需要填上左边缺失的黑，或者减掉右边多余的黑
+    //-当delete_son是黑色的一直循环
     while(delete_son!=root&&delete_son->color == black){
         //-判断delete_son所在枝条,如果是左枝
         if(delete_son == delete_son->parent->left){
-            //-如果兄弟是红色的，此时孩子（左）黑，兄弟右（红）不平衡
+            //-如果兄弟是红色的
             RBtree_node * bro = delete_son->parent->right;
             if(bro->color == red){
                 bro->color = black;//-兄弟变黑
                 delete_son->parent->color = red;//-父亲变红
-                leftRotate(delete_son->parent);//-左旋父亲
+                leftRotate(delete_son->parent);//-左旋父亲，兄弟上浮，相当于左右都加了一个黑，不改变平衡状态
                 bro = delete_son->parent->right;//-新的bro是原来bro的左枝，因为原bro是红的，其左右枝都是黑色的，这样保证新的兄弟是黑色的
             }
             //-此时兄弟是黑色的,判断兄弟的孩子
             //-左黑右黑（兄弟的孩子平衡了）
             if(bro->left->color == black&&bro->right -> color == black){
-                bro->color = red;
+                bro->color = red;//-相当于右边减去多的一个黑，达到平衡
                 delete_son = delete_son->parent;
             }else{
                 //-如果是左红右黑,变成左黑右红
                 if (bro->right->color == black){
                     bro -> color = red;
                     bro->left->color = black;
-                    rightRotate(bro);
+                    rightRotate(bro);//-左节点上浮，相当于左右都加了一个黑，不改变平衡
                 }
                 bro->color = bro->parent -> color;
                 bro->parent -> color = black;
-                bro->right->color = black;
-                leftRotate(delete_son->parent);
+                bro->right->color = black;//-给右边加了一个黑
+                leftRotate(delete_son->parent);//-父亲下沉，兄弟上浮，左边加一个黑，右边减一个黑，总体上左边填上了缺少的黑也达到了平衡
                 delete_son = root;
             }
         }
