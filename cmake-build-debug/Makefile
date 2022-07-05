@@ -123,32 +123,32 @@ lscode/fast:
 	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/build
 .PHONY : lscode/fast
 
-posix/epoll_v1.o: posix/epoll_v1.cpp.o
+design-pattern/factory_abstract.o: design-pattern/factory_abstract.cpp.o
 
-.PHONY : posix/epoll_v1.o
+.PHONY : design-pattern/factory_abstract.o
 
 # target to build an object file
-posix/epoll_v1.cpp.o:
-	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/posix/epoll_v1.cpp.o
-.PHONY : posix/epoll_v1.cpp.o
+design-pattern/factory_abstract.cpp.o:
+	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.o
+.PHONY : design-pattern/factory_abstract.cpp.o
 
-posix/epoll_v1.i: posix/epoll_v1.cpp.i
+design-pattern/factory_abstract.i: design-pattern/factory_abstract.cpp.i
 
-.PHONY : posix/epoll_v1.i
+.PHONY : design-pattern/factory_abstract.i
 
 # target to preprocess a source file
-posix/epoll_v1.cpp.i:
-	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/posix/epoll_v1.cpp.i
-.PHONY : posix/epoll_v1.cpp.i
+design-pattern/factory_abstract.cpp.i:
+	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.i
+.PHONY : design-pattern/factory_abstract.cpp.i
 
-posix/epoll_v1.s: posix/epoll_v1.cpp.s
+design-pattern/factory_abstract.s: design-pattern/factory_abstract.cpp.s
 
-.PHONY : posix/epoll_v1.s
+.PHONY : design-pattern/factory_abstract.s
 
 # target to generate assembly for a file
-posix/epoll_v1.cpp.s:
-	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/posix/epoll_v1.cpp.s
-.PHONY : posix/epoll_v1.cpp.s
+design-pattern/factory_abstract.cpp.s:
+	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.s
+.PHONY : design-pattern/factory_abstract.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... lscode"
-	@echo "... posix/epoll_v1.o"
-	@echo "... posix/epoll_v1.i"
-	@echo "... posix/epoll_v1.s"
+	@echo "... design-pattern/factory_abstract.o"
+	@echo "... design-pattern/factory_abstract.i"
+	@echo "... design-pattern/factory_abstract.s"
 .PHONY : help
 
 

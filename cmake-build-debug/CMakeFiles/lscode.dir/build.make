@@ -57,27 +57,27 @@ include CMakeFiles/lscode.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/lscode.dir/flags.make
 
-CMakeFiles/lscode.dir/posix/epoll_v1.cpp.o: CMakeFiles/lscode.dir/flags.make
-CMakeFiles/lscode.dir/posix/epoll_v1.cpp.o: ../posix/epoll_v1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.JlRn2bLEZH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lscode.dir/posix/epoll_v1.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lscode.dir/posix/epoll_v1.cpp.o -c /tmp/tmp.JlRn2bLEZH/posix/epoll_v1.cpp
+CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.o: CMakeFiles/lscode.dir/flags.make
+CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.o: ../design-pattern/factory_abstract.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.JlRn2bLEZH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.o -c /tmp/tmp.JlRn2bLEZH/design-pattern/factory_abstract.cpp
 
-CMakeFiles/lscode.dir/posix/epoll_v1.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lscode.dir/posix/epoll_v1.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.JlRn2bLEZH/posix/epoll_v1.cpp > CMakeFiles/lscode.dir/posix/epoll_v1.cpp.i
+CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.JlRn2bLEZH/design-pattern/factory_abstract.cpp > CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.i
 
-CMakeFiles/lscode.dir/posix/epoll_v1.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lscode.dir/posix/epoll_v1.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.JlRn2bLEZH/posix/epoll_v1.cpp -o CMakeFiles/lscode.dir/posix/epoll_v1.cpp.s
+CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.JlRn2bLEZH/design-pattern/factory_abstract.cpp -o CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.s
 
 # Object files for target lscode
 lscode_OBJECTS = \
-"CMakeFiles/lscode.dir/posix/epoll_v1.cpp.o"
+"CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.o"
 
 # External object files for target lscode
 lscode_EXTERNAL_OBJECTS =
 
-lscode: CMakeFiles/lscode.dir/posix/epoll_v1.cpp.o
+lscode: CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.o
 lscode: CMakeFiles/lscode.dir/build.make
 lscode: CMakeFiles/lscode.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.JlRn2bLEZH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable lscode"

@@ -342,4 +342,404 @@ MYSQL_BIND是一个数组结构，bind是数组指针
 int mysql_stmt_execute(MYSQL_STMT *stmt)
 ```
 
-真正执行prepare的语句，
+真正执行prepare的语句。
+
+执行成功，返回0
+
+出现错误，返回非0
+
+
+
+### 2.6 预处理的行数
+
+```
+my_ulonglong mysql_stmt_affected_rows(MYSQL_STMT *stmt)
+```
+
+如果执行了增删改语句，返回更新的行数
+
+如果执行了查询语句，返回结果集的行数
+
+- \>0：受影响的行数
+- =0：未更改未查询或者查询无匹配
+- =-1：查询返回错误
+
+
+
+
+
+### 2.7 预处理插入demo
+
+```c
+/* gcc -o insert mysql_insert.c -lmysqlclient -I/usr/include/mysql -L/usr/lib64/mysql/ */
+/* 预处理方式api处理 -- insert */
+#include <stdio.h>
+#include "mysql.h"
+#include <stdlib.h>
+#include <string.h>
+#define _HOST_      "localhost"                                     /* 主机 */
+#define _USER_      "root"                                          /* mysql用户,非主机 */
+#define _PASSWD_    "123456"                                        /* 密码 */
+#define _DBNAME_    "teamtalk"                                      /* 库名 */
+#define STRING_SIZE 50
+#define DROP_SAMPLE_TABLE   "DROP TABLE IF EXISTS test_table"       /* if EXISTS 好处 是如果表不存在,执行不会报错 */
+#define CREATE_SAMPLE_TABLE "CREATE TABLE test_table(col1 INT,\
+                                                 col2 VARCHAR(40),\
+                                                 col3 SMALLINT,\
+                                                 col4 TIMESTAMP)"
+#define INSERT_SAMPLE       "INSERT INTO test_table(col1,col2,col3) VALUES(?,?,?)"
+void prepare_insert( MYSQL *mysql );
+int main()
+{
+    /* 1.初始化 */
+    MYSQL * mysql = NULL;
+    mysql = mysql_init( NULL );
+    if ( mysql == NULL )
+    {
+        printf( "mysql init err\n" );
+        exit( 1 );
+    }
+    /* 2.连接 */
+    mysql = mysql_real_connect( mysql, _HOST_, _USER_, _PASSWD_, _DBNAME_, 0, NULL, 0 );
+    if ( mysql == NULL )
+    {
+        printf( "mysql_real_connect connect err\n" );
+        exit( 1 );
+    }
+    printf( "welcome to mysql \n" );
+    prepare_insert( mysql );
+    /* 3.关闭 */
+    mysql_close( mysql );
+    return(0);
+}
+void prepare_insert( MYSQL *mysql )
+{
+    MYSQL_STMT  *stmt;          /* 预处理的句柄 -- 标识进程内唯一的一个预处理的sql */
+    MYSQL_BIND  bind[3];        /* 绑定变量 */
+    my_ulonglong    affected_rows;
+    int     param_count;
+    short       small_data;
+    int     int_data;
+    char        str_data[STRING_SIZE];
+    unsigned long   str_length;
+    my_bool     is_null;
+    if ( mysql_query( mysql, DROP_SAMPLE_TABLE ) )          /*删除表 */
+    {
+        fprintf( stderr, " DROP TABLE failed\n" );
+        fprintf( stderr, " %s\n", mysql_error( mysql ) );
+        exit( 0 );
+    }
+    if ( mysql_query( mysql, CREATE_SAMPLE_TABLE ) )        /* 创建表 */
+    {
+        fprintf( stderr, " CREATE TABLE failed\n" );
+        fprintf( stderr, " %s\n", mysql_error( mysql ) );
+        exit( 0 );
+    }
+    /* Prepare an INSERT query with 3 parameters */
+    /* (the TIMESTAMP column is not named; the server */
+    /*  sets it to the current date and time) */
+    stmt = mysql_stmt_init( mysql );                                                /* 预处理的初始化 */
+    if ( !stmt )
+    {
+        fprintf( stderr, " mysql_stmt_init(), out of memory\n" );
+        exit( 0 );
+    }
+    if ( mysql_stmt_prepare( stmt, INSERT_SAMPLE, strlen( INSERT_SAMPLE ) ) )       /* insert 语句 的预处理 */
+    {
+        fprintf( stderr, " mysql_stmt_prepare(), INSERT failed\n" );
+        fprintf( stderr, " %s\n", mysql_stmt_error( stmt ) );
+        exit( 0 );
+    }
+    fprintf( stdout, " prepare, INSERT successful\n" );
+    /* Get the parameter count from the statement */
+    param_count = mysql_stmt_param_count( stmt );   /* 获得参数个数 */
+    fprintf( stdout, " total parameters in INSERT: %d\n", param_count );
+    if ( param_count != 3 )                         /* validate parameter count */
+    {
+        fprintf( stderr, " invalid parameter count returned by MySQL\n" );
+        exit( 0 );
+    }
+    /* Bind the data for all 3 parameters */
+    memset( bind, 0, sizeof(bind) );
+    /* INTEGER PARAM */
+    /* This is a number type, so there is no need to specify buffer_length */
+    bind[0].buffer_type = MYSQL_TYPE_LONG;      /* 对应int类型 */
+    bind[0].buffer      = (char *) &int_data;   /* 内存地址的映射 */
+    bind[0].is_null     = 0;
+    bind[0].length      = 0;
+    /* STRING PARAM */
+    bind[1].buffer_type = MYSQL_TYPE_STRING;
+    bind[1].buffer      = (char *) str_data;    /* char 100 */
+    bind[1].buffer_length   = STRING_SIZE;
+    bind[1].is_null     = 0;
+    bind[1].length      = &str_length;
+    /* SMALLINT PARAM */
+    bind[2].buffer_type = MYSQL_TYPE_SHORT;
+    bind[2].buffer      = (char *) &small_data;
+    bind[2].is_null     = &is_null;             /* 是否为null的指示器 */
+    bind[2].length      = 0;
+    /* Bind the buffers */
+    if ( mysql_stmt_bind_param( stmt, bind ) )      /* 绑定变量 参数绑定 */
+    {
+        fprintf( stderr, " mysql_stmt_bind_param() failed\n" );
+        fprintf( stderr, " %s\n", mysql_stmt_error( stmt ) );
+        exit( 0 );
+    }
+    /* 第一波赋值 */
+    int_data = 10;                                  /* integer */
+    strncpy( str_data, "MySQL", STRING_SIZE );      /* string  */
+    str_length = strlen( str_data );
+    /* INSERT INTO test_table(col1,col2,col3) VALUES(10,'MySQL',null) */
+    /* INSERT SMALLINT data as NULL */
+    is_null = 1;                                    /* 指示插入的第三个字段是否为null */
+    /* insert into test_table(col1,col2,col3) values(10,'MySQL',null); */
+    /* Execute the INSERT statement - 1*/
+    if ( mysql_stmt_execute( stmt ) )               /* 预处理的执行,第一次执行 */
+    {
+        fprintf( stderr, " mysql_stmt_execute(), 1 failed\n" );
+        fprintf( stderr, " %s\n", mysql_stmt_error( stmt ) );
+        exit( 0 );
+    }
+    /* Get the total number of affected rows */
+    affected_rows = mysql_stmt_affected_rows( stmt );       /* 预处理的影响条数 */
+    fprintf( stdout, " total affected rows(insert 1): %lu\n",
+         (unsigned long) affected_rows );
+    if ( affected_rows != 1 )                               /* validate affected rows */
+    {
+        fprintf( stderr, " invalid affected rows by MySQL\n" );
+        exit( 0 );
+    }
+    /* 第二波赋值 */
+    int_data = 1000;
+    strncpy( str_data, "The most popular Open Source database", STRING_SIZE );
+    str_length  = strlen( str_data );
+    small_data  = 1000; /* smallint */
+    is_null     = 1;    /* reset */
+    /* INSERT INTO test_table(col1,col2,col3) VALUES(1000,'The most popular Open Source database',1000) */
+    /* insert into test_table(col1,col2,col3) values(1000,'The most popular Open Source database',1000); */
+    /* Execute the INSERT statement - 2*/
+    if ( mysql_stmt_execute( stmt ) ) /* 第二次执行 */
+    {
+        fprintf( stderr, " mysql_stmt_execute, 2 failed\n" );
+        fprintf( stderr, " %s\n", mysql_stmt_error( stmt ) );
+        exit( 0 );
+    }
+    /* Get the total rows affected */
+    affected_rows = mysql_stmt_affected_rows( stmt );
+    fprintf( stdout, " total affected rows(insert 2): %lu\n",
+         (unsigned long) affected_rows );
+    if ( affected_rows != 1 ) /* validate affected rows */
+    {
+        fprintf( stderr, " invalid affected rows by MySQL\n" );
+        exit( 0 );
+    }
+    /* Close the statement */
+    if ( mysql_stmt_close( stmt ) )
+    {
+        fprintf( stderr, " failed while closing the statement\n" );
+        fprintf( stderr, " %s\n", mysql_stmt_error( stmt ) );
+        exit( 0 );
+    }
+}
+
+
+
+```
+
+### 2.8 预处理查询demo
+
+```
+/* gcc -o select mysql_select.c -lmysqlclient -I/usr/include/mysql -L/usr/lib64/mysql/ */
+/* SELECT id, name, sex FROM IMUser; 查询语句的使用 */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <mysql.h>
+#define _USER_      "root"          /* 用户名 */
+#define _HOST_      "127.0.0.1"     /* host */
+#define _PASSWD_    "123456"        /* root 用户名密码 */
+#define _DB_        "teamtalk"      /* 库名 */
+#define _PORT_      3306            /* port */
+/* ============================stmt ====================================== */
+#define STRING_SIZE 50
+/* mysql 查询语句 */
+#define SELECT_SAMPLE "SELECT id, name, sex FROM IMUser"
+void seach_information( MYSQL *mysql )
+{
+    int     i, count = 0;;
+    MYSQL_STMT  *stmt;                  /*  */
+    MYSQL_BIND  bind[3];                /* 条件变量 */
+    MYSQL_RES   *prepare_meta_result;   /* 结果集 */
+    unsigned long   length[3];
+    int     param_count, column_count, row_count;
+    int     int_data;               /* 序号 */
+    char        str_name[STRING_SIZE];  /* 姓名 */
+    char        str_loc[STRING_SIZE];
+    my_bool     is_null[3];             /* 参数的控制 */
+    my_ulonglong    row_unm;
+    /*
+     * ===========================init start=========================
+     * 初始化sql预处理语句
+     */
+    stmt = mysql_stmt_init( mysql );
+    if ( !stmt )
+    {
+        fprintf( stderr, " mysql_stmt_init(), out of memory\n" );
+        exit( 0 );
+    }
+    /*
+     * 绑定参数my_bool mysql_stmt_bind_param(MYSQL_STMT *stmt, MYSQL_BIND *bind)
+     * mysql_stmt_bind_param(stmt, bind);
+     */
+    if ( mysql_stmt_prepare( stmt, SELECT_SAMPLE, strlen( SELECT_SAMPLE ) ) )
+    {
+        fprintf( stderr, " mysql_stmt_prepare(), SELECT failed\n" );
+        fprintf( stderr, " %s\n", mysql_stmt_error( stmt ) );
+        exit( 0 );
+    }
+    fprintf( stdout, " prepare, SELECT successful\n" );
+    fprintf( stdout, " total parameters in SELECT: %d\n", param_count );
+    param_count = mysql_stmt_param_count( stmt );
+    if ( param_count != 0 ) /* validate parameter count */
+    {
+        fprintf( stderr, " invalid parameter count returned by MySQL\n" );
+        exit( 0 );
+    }
+    prepare_meta_result = mysql_stmt_result_metadata( stmt );
+    if ( !prepare_meta_result )
+    {
+        fprintf( stderr,
+             " mysql_stmt_result_metadata(), returned no meta information\n" );
+        fprintf( stderr, " %s\n", mysql_stmt_error( stmt ) );
+        exit( 0 );
+    }
+    column_count = mysql_num_fields( prepare_meta_result );
+    fprintf( stdout, " total columns in SELECT statement: %d\n", column_count );
+    if ( column_count != 3 ) /* validate column count */
+    {
+        fprintf( stderr, " invalid column count returned by MySQL\n" );
+        exit( 0 );
+    }
+    /* mysql_stmt_execute(stmt); //发送占位符到mysql数据库上？？？？ */
+    if ( mysql_stmt_execute( stmt ) )
+    {
+        fprintf( stderr, " mysql_stmt_execute(), failed\n" );
+        fprintf( stderr, " %s\n", mysql_stmt_error( stmt ) );
+        exit( 0 );
+    }
+    /* 初始化参数 */
+    memset( bind, 0, sizeof(bind) );
+    /* INTEGER COLUMN */
+    bind[0].buffer_type = MYSQL_TYPE_LONG;
+    bind[0].buffer      = (char *) &int_data;
+    bind[0].is_null     = &is_null[0];
+    bind[0].length      = &length[0];
+    /* varchar    -- MYSQL_TYPE_VAR_STRING */
+    /* name COLUMN */
+    bind[1].buffer_type = MYSQL_TYPE_VAR_STRING;
+    bind[1].buffer      = (char *) str_name;
+    bind[1].buffer_length   = STRING_SIZE;
+    bind[1].is_null     = &is_null[1];
+    bind[1].length      = &length[1];
+    /* loc COLUMN */
+    bind[2].buffer_type = MYSQL_TYPE_VAR_STRING;
+    bind[2].buffer      = (char *) &str_loc;
+    bind[2].buffer_length   = STRING_SIZE;
+    bind[2].is_null     = &is_null[2];
+    bind[2].length      = &length[2];
+    /* 绑定数据 */
+    mysql_stmt_bind_result( stmt, bind );
+    mysql_stmt_store_result( stmt ); /*  */
+    /* init row */
+    row_count = 0;
+    /* 查询的结果 */
+    row_unm = mysql_stmt_num_rows( stmt );
+    /*
+     * 打印数据
+     * mysql_stmt_fetch(stmt);
+     * mysql_stmt_fetch(stmt);
+     */
+    printf( "row_unm = %ld\n", row_unm );
+    for ( i = 0; i < row_unm; i++ )
+    {
+        mysql_stmt_fetch( stmt );
+        row_count++;
+        fprintf( stdout, "  row %d\n", row_count );
+        /* column 1 */
+        fprintf( stdout, "   column1 (integer)  : " );
+        if ( is_null[0] )
+            fprintf( stdout, " NULL\n" );
+        else
+            fprintf( stdout, " %d(%ld)\n", int_data, length[0] );
+        /* column 2 */
+        fprintf( stdout, "   column2 (string)   : " );
+        if ( is_null[1] )
+            fprintf( stdout, " NULL\n" );
+        else
+            fprintf( stdout, " %s(%ld)\n", str_name, length[1] );
+        /* column 3 */
+        fprintf( stdout, "   column3 (string) : " );
+        if ( is_null[2] )
+            fprintf( stdout, " NULL\n" );
+        else
+            fprintf( stdout, " %s(%ld)\n", str_loc, length[2] );
+        fprintf( stdout, "\n" );
+        /* break; */
+    }
+    /* 释放内存 */
+    /* Validate rows fetched */
+    // if ( row_count != 10 )
+    // {
+    //  fprintf( stderr, " MySQL failed to return all rows\n" );
+    //  exit( 0 );
+    // }
+    /* Free the prepared result metadata */
+    mysql_free_result( prepare_meta_result );
+    /* Close the statement */
+    mysql_stmt_close( stmt );
+}
+/* ===================================================================== */
+int main( int argc, char *argv[] )
+{
+    int     ret, i;
+    MYSQL       *mysql;
+    MYSQL_RES   * res;
+    MYSQL_ROW   row;    /*  */
+    /* unsigned long *lengths; */
+    unsigned int    num_fields;
+    MYSQL_FIELD *field; /* 字段名 */
+    /* 1，mysql_init 初始化 */
+    mysql = mysql_init( NULL );
+    if ( mysql == NULL )
+    {
+        printf( "mysql_init error\n" );
+        return(-1);
+    }
+    /* 2，mysql_real_connect链接 */
+    mysql = mysql_real_connect( mysql,
+                    _HOST_,
+                    _USER_,
+                    _PASSWD_,
+                    _DB_,
+                    0,
+                    NULL,
+                    0 );
+    if ( mysql == NULL )
+    {
+        printf( "mysql_real_connect error\n" );
+        return(-1);
+    }
+    printf( "connect mysql ok\n" );
+    /* 设置一下字符编码utf8 */
+    if ( mysql_set_character_set( mysql, "utf8" ) )
+    {
+        printf( "   mysql_set_character_set error\n");
+        return(-1);
+    }
+    seach_information( mysql );
+    /* 关闭mysql */
+    mysql_close( mysql );
+    return(0);
+}
+```
+

@@ -6,31 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/tmp/tmp.JlRn2bLEZH/posix/epoll_v1.cpp
-unistd.h
--
-sys/epoll.h
--
-sys/socket.h
--
-sys/types.h
--
-vector
--
-netinet/in.h
--
-utils.h
-/tmp/tmp.JlRn2bLEZH/posix/utils.h
-
-/tmp/tmp.JlRn2bLEZH/posix/utils.h
-stdlib.h
--
-unistd.h
--
-errno.h
--
-stdio.h
--
-string.h
+/tmp/tmp.JlRn2bLEZH/design-pattern/factory1.cpp
+iostream
 -
 

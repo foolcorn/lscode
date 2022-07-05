@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/lscode.dir/posix/epoll_v1.cpp.o  -o lscode  -lpthread 
+/usr/bin/c++  -g   CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.o  -o lscode  -lpthread 
