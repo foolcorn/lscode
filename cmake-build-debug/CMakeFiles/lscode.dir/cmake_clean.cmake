@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.o"
+  "CMakeFiles/lscode.dir/hh.cpp.o"
   "lscode"
   "lscode.pdb"
 )

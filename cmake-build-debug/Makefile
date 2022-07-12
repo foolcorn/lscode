@@ -123,32 +123,32 @@ lscode/fast:
 	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/build
 .PHONY : lscode/fast
 
-design-pattern/factory_abstract.o: design-pattern/factory_abstract.cpp.o
+hh.o: hh.cpp.o
 
-.PHONY : design-pattern/factory_abstract.o
+.PHONY : hh.o
 
 # target to build an object file
-design-pattern/factory_abstract.cpp.o:
-	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.o
-.PHONY : design-pattern/factory_abstract.cpp.o
+hh.cpp.o:
+	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/hh.cpp.o
+.PHONY : hh.cpp.o
 
-design-pattern/factory_abstract.i: design-pattern/factory_abstract.cpp.i
+hh.i: hh.cpp.i
 
-.PHONY : design-pattern/factory_abstract.i
+.PHONY : hh.i
 
 # target to preprocess a source file
-design-pattern/factory_abstract.cpp.i:
-	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.i
-.PHONY : design-pattern/factory_abstract.cpp.i
+hh.cpp.i:
+	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/hh.cpp.i
+.PHONY : hh.cpp.i
 
-design-pattern/factory_abstract.s: design-pattern/factory_abstract.cpp.s
+hh.s: hh.cpp.s
 
-.PHONY : design-pattern/factory_abstract.s
+.PHONY : hh.s
 
 # target to generate assembly for a file
-design-pattern/factory_abstract.cpp.s:
-	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/design-pattern/factory_abstract.cpp.s
-.PHONY : design-pattern/factory_abstract.cpp.s
+hh.cpp.s:
+	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/hh.cpp.s
+.PHONY : hh.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... lscode"
-	@echo "... design-pattern/factory_abstract.o"
-	@echo "... design-pattern/factory_abstract.i"
-	@echo "... design-pattern/factory_abstract.s"
+	@echo "... hh.o"
+	@echo "... hh.i"
+	@echo "... hh.s"
 .PHONY : help
 
 
