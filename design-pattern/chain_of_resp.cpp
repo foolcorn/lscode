@@ -25,14 +25,14 @@ public:
     void setNextHandler(HandlerClass * hc){
         next_handler = hc;
     }
-    //-获取下一链
+    //-是否能获取下一链
     HandlerClass * getNextHandler(){
-        return next_handler;
+        return next_handler;//-只是用作判断条件
     }
     //-处理请求
     bool handle(VocationContext vc){
         if(canHandle(vc)){
-            handleVocation(vc);
+            return handleVocation(vc);
         }else if(getNextHandler()){
             return next_handler->handle(vc);
         }else {
@@ -41,7 +41,7 @@ public:
         }
     };
     //-是否批假(子类各自的业务决定)
-    virtual void handleVocation(VocationContext vc) = 0;
+    virtual bool handleVocation(VocationContext vc) = 0;
 };
 
 class SystemHanlder:public HandlerClass{
@@ -50,10 +50,11 @@ private:
         return vc.days<=1;
     }
 public:
-    void handleVocation(VocationContext vc) override{
+    bool handleVocation(VocationContext vc) override{
         //-业务决定是否要通过
-        string res = rand()%10>2?"yes":"no";
-        cout<<"system handle result:"<< res<<endl;
+        bool res = rand()%10>2;
+        cout<<"system handle result:"<< (res?"yes":"no")<<endl;
+        return res;
     }
 };
 
@@ -63,10 +64,11 @@ private:
         return vc.days<=3;
     }
 public:
-    void handleVocation(VocationContext vc) override{
+    bool handleVocation(VocationContext vc) override{
         //-业务决定是否要通过
-        string res = rand()%10>3?"yes":"no";
-        cout<<"manager handle result:"<< res<<endl;
+        bool res = rand()%10>3;
+        cout<<"manager handle result:"<<(res?"yes":"no")<<endl;
+        return res;
     }
 };
 
@@ -76,10 +78,11 @@ private:
         return true;
     }
 public:
-    void handleVocation(VocationContext vc) override{
+    bool handleVocation(VocationContext vc) override{
         //-业务决定是否要通过
-        string res = rand()%10>4?"yes":"no";
-        cout<<"boss handle result:"<< res<<endl;
+        bool res = rand()%10>4;
+        cout<<"boss handle result:"<<(res?"yes":"no")<<endl;
+        return res;
     }
 };
 

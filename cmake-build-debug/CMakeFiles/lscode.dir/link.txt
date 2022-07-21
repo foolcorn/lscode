@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/lscode.dir/hh.cpp.o  -o lscode  -lpthread 
+/usr/bin/c++  -g   CMakeFiles/lscode.dir/MemoryPool.cpp.o  -o lscode  -lpthread 
