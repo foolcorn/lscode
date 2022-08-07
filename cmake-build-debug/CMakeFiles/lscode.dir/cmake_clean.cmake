@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lscode.dir/MemoryPool.cpp.o"
+  "CMakeFiles/lscode.dir/LockFreeQueue.cpp.o"
   "lscode"
   "lscode.pdb"
 )

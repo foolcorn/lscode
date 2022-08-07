@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/tmp/tmp.Di2p2ssOUo/MemoryPool.cpp" "/tmp/tmp.Di2p2ssOUo/cmake-build-debug/CMakeFiles/lscode.dir/MemoryPool.cpp.o"
+  "/tmp/tmp.Di2p2ssOUo/LockFreeQueue.cpp" "/tmp/tmp.Di2p2ssOUo/cmake-build-debug/CMakeFiles/lscode.dir/LockFreeQueue.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

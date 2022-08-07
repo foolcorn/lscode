@@ -6,9 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/tmp/tmp.Di2p2ssOUo/design-pattern/chain_of_resp.cpp
+/tmp/tmp.Di2p2ssOUo/MemoryPool.cpp
 iostream
 -
-string
+stdlib.h
+-
+string.h
 -
 

@@ -123,32 +123,32 @@ lscode/fast:
 	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/build
 .PHONY : lscode/fast
 
-MemoryPool.o: MemoryPool.cpp.o
+LockFreeQueue.o: LockFreeQueue.cpp.o
 
-.PHONY : MemoryPool.o
+.PHONY : LockFreeQueue.o
 
 # target to build an object file
-MemoryPool.cpp.o:
-	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/MemoryPool.cpp.o
-.PHONY : MemoryPool.cpp.o
+LockFreeQueue.cpp.o:
+	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/LockFreeQueue.cpp.o
+.PHONY : LockFreeQueue.cpp.o
 
-MemoryPool.i: MemoryPool.cpp.i
+LockFreeQueue.i: LockFreeQueue.cpp.i
 
-.PHONY : MemoryPool.i
+.PHONY : LockFreeQueue.i
 
 # target to preprocess a source file
-MemoryPool.cpp.i:
-	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/MemoryPool.cpp.i
-.PHONY : MemoryPool.cpp.i
+LockFreeQueue.cpp.i:
+	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/LockFreeQueue.cpp.i
+.PHONY : LockFreeQueue.cpp.i
 
-MemoryPool.s: MemoryPool.cpp.s
+LockFreeQueue.s: LockFreeQueue.cpp.s
 
-.PHONY : MemoryPool.s
+.PHONY : LockFreeQueue.s
 
 # target to generate assembly for a file
-MemoryPool.cpp.s:
-	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/MemoryPool.cpp.s
-.PHONY : MemoryPool.cpp.s
+LockFreeQueue.cpp.s:
+	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/LockFreeQueue.cpp.s
+.PHONY : LockFreeQueue.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... lscode"
-	@echo "... MemoryPool.o"
-	@echo "... MemoryPool.i"
-	@echo "... MemoryPool.s"
+	@echo "... LockFreeQueue.o"
+	@echo "... LockFreeQueue.i"
+	@echo "... LockFreeQueue.s"
 .PHONY : help
 
 
