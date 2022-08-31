@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 /usr/bin/c++  -g   CMakeFiles/lscode.dir/MemoryPool.cpp.o CMakeFiles/lscode.dir/LockFreeQueue.cpp.o  -o lscode  -lpthread 
+=======
+/usr/bin/c++  -g   CMakeFiles/lscode.dir/LockFreeQueue.cpp.o  -o lscode  -lpthread 
+>>>>>>> bea49a95b74a504d965db454435bc1277334674c

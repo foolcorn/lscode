@@ -86,7 +86,11 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+<<<<<<< HEAD
 		<Unit filename="/tmp/tmp.loTla5Bejk/LockFreeQueue.cpp">
+=======
+		<Unit filename="/tmp/tmp.Di2p2ssOUo/LockFreeQueue.cpp">
+>>>>>>> bea49a95b74a504d965db454435bc1277334674c
 			<Option target="lscode"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.loTla5Bejk/MemoryPool.cpp">

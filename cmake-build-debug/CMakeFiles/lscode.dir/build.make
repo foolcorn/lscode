@@ -57,6 +57,7 @@ include CMakeFiles/lscode.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/lscode.dir/flags.make
 
+<<<<<<< HEAD
 CMakeFiles/lscode.dir/MemoryPool.cpp.o: CMakeFiles/lscode.dir/flags.make
 CMakeFiles/lscode.dir/MemoryPool.cpp.o: ../MemoryPool.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.loTla5Bejk/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lscode.dir/MemoryPool.cpp.o"
@@ -86,12 +87,32 @@ CMakeFiles/lscode.dir/LockFreeQueue.cpp.s: cmake_force
 # Object files for target lscode
 lscode_OBJECTS = \
 "CMakeFiles/lscode.dir/MemoryPool.cpp.o" \
+=======
+CMakeFiles/lscode.dir/LockFreeQueue.cpp.o: CMakeFiles/lscode.dir/flags.make
+CMakeFiles/lscode.dir/LockFreeQueue.cpp.o: ../LockFreeQueue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.Di2p2ssOUo/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lscode.dir/LockFreeQueue.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lscode.dir/LockFreeQueue.cpp.o -c /tmp/tmp.Di2p2ssOUo/LockFreeQueue.cpp
+
+CMakeFiles/lscode.dir/LockFreeQueue.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lscode.dir/LockFreeQueue.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.Di2p2ssOUo/LockFreeQueue.cpp > CMakeFiles/lscode.dir/LockFreeQueue.cpp.i
+
+CMakeFiles/lscode.dir/LockFreeQueue.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lscode.dir/LockFreeQueue.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.Di2p2ssOUo/LockFreeQueue.cpp -o CMakeFiles/lscode.dir/LockFreeQueue.cpp.s
+
+# Object files for target lscode
+lscode_OBJECTS = \
+>>>>>>> bea49a95b74a504d965db454435bc1277334674c
 "CMakeFiles/lscode.dir/LockFreeQueue.cpp.o"
 
 # External object files for target lscode
 lscode_EXTERNAL_OBJECTS =
 
+<<<<<<< HEAD
 lscode: CMakeFiles/lscode.dir/MemoryPool.cpp.o
+=======
+>>>>>>> bea49a95b74a504d965db454435bc1277334674c
 lscode: CMakeFiles/lscode.dir/LockFreeQueue.cpp.o
 lscode: CMakeFiles/lscode.dir/build.make
 lscode: CMakeFiles/lscode.dir/link.txt
