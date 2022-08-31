@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.Di2p2ssOUo
+CMAKE_SOURCE_DIR = /tmp/tmp.loTla5Bejk
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.Di2p2ssOUo/cmake-build-debug
+CMAKE_BINARY_DIR = /tmp/tmp.loTla5Bejk/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.Di2p2ssOUo/cmake-build-debug/CMakeFiles /tmp/tmp.Di2p2ssOUo/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.loTla5Bejk/cmake-build-debug/CMakeFiles /tmp/tmp.loTla5Bejk/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.Di2p2ssOUo/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.loTla5Bejk/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,33 @@ lscode/fast:
 	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/build
 .PHONY : lscode/fast
 
+LockFreeQueue.o: LockFreeQueue.cpp.o
+
+.PHONY : LockFreeQueue.o
+
+# target to build an object file
+LockFreeQueue.cpp.o:
+	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/LockFreeQueue.cpp.o
+.PHONY : LockFreeQueue.cpp.o
+
+LockFreeQueue.i: LockFreeQueue.cpp.i
+
+.PHONY : LockFreeQueue.i
+
+# target to preprocess a source file
+LockFreeQueue.cpp.i:
+	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/LockFreeQueue.cpp.i
+.PHONY : LockFreeQueue.cpp.i
+
+LockFreeQueue.s: LockFreeQueue.cpp.s
+
+.PHONY : LockFreeQueue.s
+
+# target to generate assembly for a file
+LockFreeQueue.cpp.s:
+	$(MAKE) -f CMakeFiles/lscode.dir/build.make CMakeFiles/lscode.dir/LockFreeQueue.cpp.s
+.PHONY : LockFreeQueue.cpp.s
+
 MemoryPool.o: MemoryPool.cpp.o
 
 .PHONY : MemoryPool.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... lscode"
+	@echo "... LockFreeQueue.o"
+	@echo "... LockFreeQueue.i"
+	@echo "... LockFreeQueue.s"
 	@echo "... MemoryPool.o"
 	@echo "... MemoryPool.i"
 	@echo "... MemoryPool.s"

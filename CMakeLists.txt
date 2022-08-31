@@ -6,5 +6,5 @@ set(CMAKE_CXX_STANDARD 11)
 include_directories(.)
 include_directories(posix)
 
-add_executable(lscode posix/utils.h MemoryPool.cpp)
+add_executable(lscode posix/utils.h MemoryPool.cpp LockFreeQueue.cpp)
 TARGET_LINK_LIBRARIES(lscode ${CMAKE_THREAD_LIBS_INIT})

@@ -8,44 +8,44 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/tmp/tmp.Di2p2ssOUo/cmake-build-debug"/>
+				<Option working_dir="/tmp/tmp.loTla5Bejk/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/tmp/tmp.Di2p2ssOUo/cmake-build-debug"/>
+				<Option working_dir="/tmp/tmp.loTla5Bejk/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/tmp/tmp.Di2p2ssOUo/cmake-build-debug"/>
+				<Option working_dir="/tmp/tmp.loTla5Bejk/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="lscode">
-				<Option output="/tmp/tmp.Di2p2ssOUo/cmake-build-debug/lscode" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.Di2p2ssOUo/cmake-build-debug"/>
+				<Option output="/tmp/tmp.loTla5Bejk/cmake-build-debug/lscode" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.loTla5Bejk/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.Di2p2ssOUo/."/>
-					<Add directory="/tmp/tmp.Di2p2ssOUo/posix"/>
+					<Add directory="/tmp/tmp.loTla5Bejk/."/>
+					<Add directory="/tmp/tmp.loTla5Bejk/posix"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -55,21 +55,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 lscode"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 lscode"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="lscode/fast">
-				<Option output="/tmp/tmp.Di2p2ssOUo/cmake-build-debug/lscode" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.Di2p2ssOUo/cmake-build-debug"/>
+				<Option output="/tmp/tmp.loTla5Bejk/cmake-build-debug/lscode" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.loTla5Bejk/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.Di2p2ssOUo/."/>
-					<Add directory="/tmp/tmp.Di2p2ssOUo/posix"/>
+					<Add directory="/tmp/tmp.loTla5Bejk/."/>
+					<Add directory="/tmp/tmp.loTla5Bejk/posix"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -79,20 +79,23 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 lscode/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/tmp/tmp.Di2p2ssOUo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 lscode/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/tmp/tmp.loTla5Bejk/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/tmp/tmp.Di2p2ssOUo/MemoryPool.cpp">
+		<Unit filename="/tmp/tmp.loTla5Bejk/LockFreeQueue.cpp">
 			<Option target="lscode"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.Di2p2ssOUo/posix/utils.h">
+		<Unit filename="/tmp/tmp.loTla5Bejk/MemoryPool.cpp">
 			<Option target="lscode"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.Di2p2ssOUo/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.loTla5Bejk/posix/utils.h">
+			<Option target="lscode"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.loTla5Bejk/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
